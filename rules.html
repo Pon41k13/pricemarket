@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Правила пользования маркетплейсами. Детали регистрации, законодательные требования и советы для новичков.">
+    <title>Правила пользования маркетплейсами</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            
+            top: 0;
+            width: 100%;
+            background-color: #444;
+            z-index: 1000;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover, nav a.active {
+            color: #ffcc00;
+        }
+        section {
+            padding: 20px;
+        }
+        section:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        section:nth-child(even) {
+            background-color: #eaeaea;
+        }
+        h2 {
+            color: #444;
+        }
+        ol, ul {
+            margin-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            text-align: left;
+            padding: 10px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #444;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #e6b800;
+        }
+        #faq button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background-color: #f4f4f4;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        #faq button:hover {
+            background-color: #ddd;
+        }
+        #faq p {
+            display: none;
+            margin: 10px 0 15px;
+            padding: 10px;
+            background-color: #e9e9e9;
+            border-left: 4px solid #ffcc00;
+        }
+        @media only screen and (max-width: 768px) {
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+            .btn {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+            section {
+                padding: 15px;
+            }
+        }
+		#back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0073e6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-decoration: none;
+            display: none;
+        }
+        #back-to-top:hover {
+            background: #005bb5;
+        }
+    </style>
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const displayStyle = answer.style.display;
+            answer.style.display = displayStyle === "none" || displayStyle === "" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+
+<header>
+ <h1>                                       </h1>
+    <h1>Правила пользования маркетплейсами</h1>
+    <p>Всё, что нужно знать для успешной работы с маркетплейсами</p>
+</header>
+
+<nav>
+    <!-- Навигация между страницами -->
+    <a href="index.html">На главную</a>
+	<a href="types.html">О маркетплейсах</a>
+    <a href="tools.html">Инструменты</a>
+        <a href="rules.html" style="color: #ffcc00;">Правила</a>
+    <a href="quiz.html">Тесты</a>
+</nav>
+<nav>
+   
+    <a href="#registration">Регистрация</a>
+    <a href="#laws">Законы</a>
+    <a href="#rules">Требования платформы</a>
+    <a href="#advice">Советы</a>
+    
+</nav>
+
+<section id="registration">
+    <h2>Шаги регистрации продавца</h2>
+    <ol>
+        <li><strong>Открытие аккаунта:</strong> Зарегистрируйтесь на маркетплейсе и создайте учетную запись.</li>
+        <li><strong>Подготовка документов:</strong> Загрузите ИНН, фото паспорта, данные о регистрации бизнеса.</li>
+
+        <li><strong>Настройка кабинета:</strong> Добавьте товары, фото и их описания.</li>
+        <li><strong>Проверка продукции:</strong> Убедитесь, что ваши товары соответствуют требованиям платформы (актуальные фото, минимальный склад).</li>
+        <li><strong>Настройка логистики:</strong> Выберите собственную доставку или партнерскую логистику маркетплейса.</li>
+    </ol>
+</section>
+
+<section id="laws">
+    <h2>Государственные законы и требования</h2>
+    <p>Для работы на платформе обязательны следующие юридические условия:</p>
+    <ul>
+        <li><strong>Регистрация:</strong> ИП или ООО является обязательным.</li>
+        <li><strong>Подготовка документов:</strong> Фискальные чеки, корректный расчёт налогов.</li>
+        <li>Подробнее вы можете узнать на сайте <a href="https://www.nalog.gov.ru/" target="_blank">ФНС России</a>.</li>
+    </ul>
+</section>
+
+<section id="rules">
+    <h2>Шаги соблюдения правил маркетплейса</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Требование</th>
+                <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Качество</td>
+                <td>Каждый товар должен соответствовать заявленному описанию и характеристикам.</td>
+            </tr>
+            <tr>
+                <td>Описание</td>
+                <td>Детальное описание и актуальные данные</td>
+            </tr>
+            <tr>
+                <td>Цена</td>
+                <td>Рекомендованное соответствие рыночной конкуренции.</td>
+            </tr>
+            <tr>
+                <td>Работа с клиентами</td>
+                <td>Обслуживание возвратов и ответы на запросы клиентов.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="advice">
+    <h2>Практические советы</h2>
+    <ul>
+        <li>Проводите анализ цен на товары конкурентов.</li>
+        <li>Используйте фото высокого качества.</li>
+        <li>Активно работайте с отзывами покупателей.</li>
+    </ul>
+</section>
+
+<section id="faq">
+    <h2>Часто задаваемые вопросы (FAQ)</h2>
+    <button onclick="toggleAnswer('faq1')">Могу ли я торговать без ИП?</button>
+    <p id="faq1">Нет, регистрация ИП является обязательной для работы на большинстве платформ.</p>
+
+    <button onclick="toggleAnswer('faq2')">Какая комиссия у маркетплейсов?</button>
+    <p id="faq2">Комиссия варьируется в зависимости от платформы и составляет от 5% до 20%.</p>
+	 <button onclick="toggleAnswer('faq3')">Какие требования нужно выполнить, чтобы начать продавать на маркетплейсе?</button>
+    <p id="faq3">Перед началом продаж вы должны знать о требованиях к продуктам, определить необходимые лицензии или сертификаты, а также зарегистрировать свой бизнес, если это требуется.</p>
+
+    <button onclick="toggleAnswer('faq4')">Как правильно подготовить свои товары для размещения на маркетплейсе?</button>
+    <p id="faq4">Важно обеспечить высокое качество фотографий, писать подробные описания товаров, узнать о лучших практиках по SEO и использовать ключевые слова для оптимизации видимости.</p>
+
+    <button onclick="toggleAnswer('faq5')">Как выбрать подходящий маркетплейс для своего бизнеса?</button>
+    <p id="faq5">Обратите внимание на аудиторию платформы, комиссии, условия работы и возможность интеграции с другими каналами продаж. Сравните различные платформы перед тем, как сделать выбор.</p>
+
+    <button onclick="toggleAnswer('faq6')">Что такое политика возвратов и как она работает на маркетплейсах?</button>
+    <p id="faq6">Политика возвратов — это условия, при которых покупатели могут вернуть товары. Ознакомьтесь с требованиями вашего маркетплейса и создайте свою политику возвратов, соответствующую их условиям.</p>
+
+    <button onclick="toggleAnswer('faq7')">Как отслеживать продажи и управлять запасами товаров на платформе?</button>
+    <p id="faq7">Используйте встроенные инструменты аналитики маркетплейса, а также специализированные программы для управления запасами и отслеживания продаж, чтобы избежать нехватки или переполнения склада.</p>
+
+    <button onclick="toggleAnswer('faq8')">Какие способы продвижения товаров доступны на маркетплейсах?</button>
+    <p id="faq8">Рассмотрите платные рекламные кампании, повышающие видимость, использование социальных сетей и рассылок, а также участие в акциях и распродажах, чтобы увеличить свои продажи.</p>
+
+    <button onclick="toggleAnswer('faq9')">Какова роль отзывов и рейтингов в продажах на маркетплейсе?</button>
+    <p id="faq9">Отзывы и рейтинги напрямую влияют на доверие покупателей. Работа с отзывами, быстрое реагирование на негативные комментарии и постоянное улучшение качества товаров помогут укрепить репутацию.</p>
+
+    <button onclick="toggleAnswer('faq10')">Что делать, если у меня возникли проблемы с клиентами или платёжной системой?</button>
+    <p id="faq10">В таких случаях лучше всего обратиться в службу поддержки маркетплейса для получения помощи и рекомендаций. Важно также поддерживать профессиональное общение с клиентами в адекватной ситуации.</p>
+
+</section>
+
+<section id="summary">
+    <h2>Итог</h2>
+    <p>Следуя вышеуказанным рекомендациям, вы сможете работать эффективно на маркетплейсе.</p>
+    <a href="quiz.html" class="btn">Пройти тест</a>
+</section>
+<!-- Кнопка "Наверх" -->
+<a href="#top" id="back-to-top">Наверх</a>
+
+<script>
+    // Показать кнопку "Наверх"
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+</script>
+<footer>
+    <p>&copy; 2024 «PriceMarket». Все права защищены.</p>
+</footer>
+</body>
+</html>

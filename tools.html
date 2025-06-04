@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструменты для работы с маркетплейсами</title>
+    <style>
+        /* Общий стиль */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            overflow-x: hidden;
+        }
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            animation: fadeInDown 2s;
+        }
+        nav {
+            background: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            color: #ffcc00;
+            transition: color 0.3s;
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+        .content h3 {
+            color: #005bb5;
+            animation: slideInLeft 1s ease;
+        }
+        .content img.feature-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 2px 15px rgba(0,0,0,0.1);
+            animation: fadeIn 2s;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 15px rgba(0,0,0,0.15);
+        }
+        .feature h4 {
+            margin-top: 0;
+        }
+        .feature img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .feature a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        .feature a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        footer p {
+            animation: fadeInUp 1s;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0073e6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-decoration: none;
+            display: none;
+        }
+        #back-to-top:hover {
+            background: #005bb5;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Инструменты для работы с маркетплейсами</h1>
+    <p>Ваш помощник для повышения продаж и автоматизации процессов</p>
+</header>
+
+<nav>
+    <!-- Навигация между страницами -->
+    <a href="index.html">На главную</a>
+	<a href="types.html">О маркетплейсах</a>
+    <a href="tools.html" style="color: #ffcc00;">Инструменты</a>
+    <a href="rules.html">Правила</a>
+    <a href="quiz.html">Тесты</a>
+</nav>
+
+<nav>
+    <a href="#inventory">Управление складом</a>
+    <a href="#analytics">Аналитика</a>
+    <a href="#seo">SEO и реклама</a>
+    <a href="#support">Отзывы</a>
+    <a href="#pricing">Ценообразование</a>
+</nav>
+
+<div class="content">
+    <!-- Секция 1 -->
+    <h3 id="inventory">1. Инструменты для управления складом</h3>
+    <img src="warehouse_management0.jpg" alt="Управление складом" class="feature-img">
+   <p>Для успешной работы с маркетплейсами важно грамотно управлять складскими остатками. Это помогает избежать дефицита товаров и несвоевременной доставки. Рекомендуемые инструменты:</p>
+    <ul>
+        <li><b>МойСклад</b> — позволяет автоматизировать управление товарами и считать остатки (<a href="https://www.moysklad.ru" target="_blank">подробнее</a>).</li>
+        <li><b>1С:Предприятие</b> — поможет интегрировать данные с маркетплейсами и вести отчетность (<a href="https://1c.ru" target="_blank">читать</a>).</li>
+    </ul>
+    <p><b>Совет:</b> Убедитесь, что ваши товары автоматически обновляются на всех платформах при изменении остатков на складе!</p>
+
+    <div class="features">
+        <div class="feature">
+            <img src="warehouse_management.jpg" alt="Система управления остатками">
+            <h4>Системы управления остатками</h4>
+            <p>Инструменты для контроля за товарами на складе в реальном времени и предотвращения дефицита.</p>
+            <a href="https://www.moysklad.ru/" target="_blank">Сервис "МойСклад"</a>
+        </div>
+    </div>
+
+    <!-- Секция 2 -->
+    <h3 id="analytics">2. Аналитика и прогнозирование</h3>
+    <img src="data_analytics.jpg" alt="Аналитика и прогнозирование" class="feature-img">
+    <p>Аналитические инструменты помогают прогнозировать спрос и корректировать стратегии продаж.</p>
+<p>Аналитика — ключ к пониманию пользовательских предпочтений и повышению продаж. Используйте эти инструменты для анализа:</p>
+    <ul>
+        <li><b>Google Analytics</b> — подробная статистика и отслеживание поведения клиентов (<a href="https://analytics.google.com" target="_blank">учимся</a>).</li>
+        <li><b>Power BI</b> — визуализация данных и отчеты (<a href="https://powerbi.com" target="_blank">подробнее</a>).</li>
+        <li><b>MPStats</b> — аналитика по продажам и трендам на маркетплейсах (<a href="https://mpstats.io" target="_blank">посетить</a>).</li>
+    </ul>
+    <!-- Секция 3 -->
+    <h3 id="seo">3. SEO, реклама и продвижение</h3>
+    <img src="seo_marketing.jpg" alt="SEO и реклама" class="feature-img">
+    <p>SEO-инструменты помогут продвигать товары и привлекать больше клиентов.</p>
+<p>Оптимизация карточек товаров и реклама — залог успеха на маркетплейсах. Полезные инструменты:</p>
+    <ul>
+        <li><b>Semrush</b> — платформа для анализа ключевых слов, конкурентов и SEO-оптимизации (<a href="https://semrush.com" target="_blank">узнать больше</a>).</li>
+        <li><b>Google Ads</b> — запуск рекламы на поисковых платформах (<a href="https://ads.google.com" target="_blank">перейти</a>).</li>
+        <li><b>YOUSCAN</b> — мониторинг упоминаний бренда и отзывов в сети (<a href="https://youscan.io" target="_blank">читать</a>).</li>
+    </ul>
+    <!-- Секция 4 -->
+    <h3 id="support">4. Работа с отзывами и репутацией</h3>
+    <img src="customer_reviews.jpg" alt="Отзывы и репутация" class="feature-img">
+    <p>Обрабатывайте отзывы для улучшения отношений с клиентами и укрепления доверия.</p>
+<p>Качественная работа с отзывами на маркетплейсах поддерживает репутацию бренда. Автоматизируйте отклики!</p>
+    <ul>
+        <li><b>ReputationStudio</b> — платформа для мониторинга и управления отзывами (<a href="https://www.reputationstudio.com" target="_blank">подробнее</a>).</li>
+        <li><b>Yandex.Реклама</b> — возможность продвигать штатно карточки с позитивными отзывами (<a href="https://business.yandex.ru/" target="_blank">читать</a>).</li>
+        <li><b>Brand24</b> — анализ и сбор пользовательских откликов о вашем продукте (<a href="https://brand24.com/" target="_blank">посетить</a>).</li>
+    </ul>
+    <!-- Секция 5 -->
+    <h3 id="pricing">5. Ценообразование и конкурентный анализ</h3>
+    <img src="pricing_analysis.jpg" alt="Ценообразование и анализ" class="feature-img">
+    <p>Инструменты мониторинга цен помогут остаться конкурентоспособными.</p>
+	 <p>Оптимальные цены влияют на спрос и позиционирование товара. Популярные инструменты:</p>
+    <ul>
+        <li><b>Competera</b> — анализ цен конкурентов и формирование конкурентной стратегии (<a href="https://competera.net" target="_blank">детали</a>).</li>
+        <li><b>Priceva</b> — автоматизация мониторинга цен на маркетплейсах (<a href="https://priceva.com" target="_blank">перейти</a>).</li>
+        <li><b>Алгоритмический прайсинг</b> — настройте динамическую стоимость в зависимости от данных спроса (<a href="https://alpricing.ru/" target="_blank">читать</a>).</li>
+    </ul>
+</div>
+
+<!-- Кнопка "Наверх" -->
+<a href="#top" id="back-to-top">Наверх</a>
+
+<script>
+    // Показать кнопку "Наверх"
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+</script>
+<footer>
+    <p>&copy; 2024 «PriceMarket». Все права защищены.</p>
+</footer>
+</body>
+</html>

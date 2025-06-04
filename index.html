@@ -1,0 +1,635 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PriceMarket</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <style>
+        /* Общий стиль */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            overflow-x: hidden;
+        }
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            animation: fadeInDown 2s;
+        }
+          nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        nav a:hover {
+            background: #555;
+        }
+		.card {
+  text-align: center; /* Центрирование содержимого внутри .card */
+}
+h3 {
+  margin: 10px 0;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Тень */
+  display: inline-block; /* Убираем margin, если используется margin в .card */
+}
+		.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+		/* Адаптив для мобильных устройств */
+   @media (max-width: 768px) {
+       nav {
+           flex-direction: column;
+           align-items: center;
+       }
+       nav a {
+           margin-bottom: 10px;
+       }
+   }
+        .line {
+            height: 4px;
+            background: gold;
+            margin-top: 10px;
+        }
+        .main-content {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 30px 0;
+            color: #222;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .card h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .card a:hover {
+            background: gold;
+            color: #333;
+        }    
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+        .content h3 {
+            color: #005bb5;
+            animation: slideInLeft 1s ease;
+        }
+        .content img.feature-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 2px 15px rgba(0,0,0,0.1);
+            animation: fadeIn 2s;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 15px rgba(0,0,0,0.15);
+        }
+        .feature h4 {
+            margin-top: 0;
+        }
+        .feature img {
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 5px;
+			object-fit: cover;
+        }
+        .feature a {
+            color: #0073e6;
+            text-decoration: none;
+			
+        }
+		   .feature a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        footer p {
+            animation: fadeInUp 1s;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0073e6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-decoration: none;
+            display: none;
+        }
+        #back-to-top:hover {
+            background: #005bb5;
+        }
+        /* Анимации */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+		/* Стили формы для всплывающего окна */
+        .popup-form { line-height: 0.9; 
+		margin: 0; 
+       padding: 0;
+			  transition: opacity 0.3s ease, transform 0.3s ease;
+            position: fixed; /* Закрепляем форму */
+            bottom: 20px;    /* Отступ от нижнего края */
+            right: 20px;     /* Отступ от правого края */
+            background: #0073e6; /* Цвет фона */
+            color: #fff;
+            padding: 7px;
+            border-radius: 20px;
+            box-shadow: 0 4px 5px rgba(10, 0, 0, 0.4);
+            width: 250px; /* Ширина формы */
+			height: 220px; /* Установите фиксированную высоту (например, 200px) */
+    overflow: auto;
+	animation: fadeIn 0.5s ease-in-out;
+        }
+		.popup-form.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+        .popup-form input
+        { line-height: 1.4;
+            width: 90px;
+            padding: 0px;
+            margin-top: 1px;
+            border: none;
+            border-radius: 5%;
+        }
+ 
+        .popup-form button { 
+            width: auto;
+            padding: 2px;
+            margin-top: 1px;
+            border: none;
+            border-radius: 5px;
+            background: gold;
+            color: #333;
+            font-size: 15px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+
+        .popup-form button:hover { 
+            background: #e6b800;
+        }
+
+		.close-btn {
+   position: absolute; /* Чтобы кнопка была внутри формы */
+    top: 10px; /* Отступ от верхнего края формы */
+    right: 10px; /* Отступ от правого края формы */
+    width: 25px; /* Ширина кнопки под размер символа */
+    height: 25px; /* Делаем кнопку квадратной */
+    line-height: 25px; /* Центрируем символ по вертикали */
+    text-align: center; /* Центрируем символ по горизонтали */
+    background: none; /* Убираем фон */
+    border: none; /* Убираем границу */
+    border-radius: 500%; /* (Необязательно) Делаем кнопку круглой */
+    cursor: pointer; /* Изменяем стиль курсора */
+    padding: 0; /* Убираем дополнительные отступы */
+}
+	  /* Для красоты: стилизуем контейнер сообщения */
+        .success-message {
+            display: none; /* Скрыто по умолчанию */
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #4caf50;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 5px;
+        }
+#slider-section {
+  padding: 50px 0;
+  background-color: #f4f4f4;
+}
+	.swiper-container {
+      width: 80%; /* Ширина слайдера */
+      margin: auto; /* Центрирование на странице */
+	  position: relative;
+	   overflow: hidden;
+    }
+	 .swiper-wrapper {
+        display: flex;
+        transition: transform 0.3s ease; /* Плавность перемещения */
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      width: 90%; /* Ширина карточек */
+      max-width: 250px;
+	  display: flex;
+       flex-direction: column;
+       justify-content: center; /* Центрируем контент */ 
+	    text-align: center; /* Центрирование содержимого внутри .card */
+    }
+    .card h3 {
+      margin: 10px 0;
+      color: #333;
+	   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Тень */
+	   display: inline-block;
+    }
+    .card p {
+      font-size: 14px;
+      color: #666;
+    }
+	.swiper-pagination-bullet-active {
+            background-color: #0073e6 !important;
+        }
+    .swiper-button-next, .swiper-button-prev {
+            color: #0073e6;
+        }
+	 /* Для изображений в отзывах */
+.review-content {
+    display: flex; /* Включаем Flexbox */
+    align-items: center; /* Центрируем элементы по вертикали */
+    gap: 15px; /* Расстояние между текстом и изображением */
+}
+
+.review-textual {
+    flex: 1; /* Занимает всё доступное пространство слева  */
+}
+.review-img {
+    width: 100px; /* Задайте ширину изображения */
+    height: 100px; /* Задайте высоту изображения */
+    object-fit: contain; /* Сохраняем пропорции изображения */
+    border-radius: 50%; /* Если нужно круглое изображение */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"style="color: #ffcc00;">Главная</a>
+            <a href="types.html">О маркетплейсах</a>
+            <a href="tools.html">Инструменты</a>
+            <a href="rules.html">Правила</a>
+            <a href="quiz.html">Пройти тест</a>
+        </nav>
+        <div class="line"></div>
+    </header>
+ <div class="main-content">
+     <p class="fade-in">  Добро пожаловать на сайт PriceMarket!
+		Начните своё путешествие в мир маркетплейсов.</p>      
+<h2 class="section-title" style="color: #FFD700;">PriceMarket</h2>
+            <p>Ваш надёжный гид в мире маркетплейсов. Мы собрали всё необходимое, чтобы Вы могли легко и эффективно работать на популярных платформах.</p>
+            <p>На нашем сайте Вы найдете:</p>
+            <ul>
+                <li>Советы для начинающих и опытных продавцов.</li>
+                <li>Обзор инструментов для анализа и продвижения.</li>
+                <li>Последние новости и рекомендации для работы с маркетплейсами.</li>
+            </ul>
+            <p style="color: #0000FF;"><b>Почему выбирают нас?</b></p>
+            <ul>
+                <li>Уникальные материалы для предпринимателей и продавцов.</li>
+                <li>Информация, которая помогает добиться успеха.</li>
+                <li>Простота подачи и структурированный подход.</li>
+            </ul>
+            <p>  
+		 <img class="feature-img" src="example.jpg"  width="900" height="500" alt="Пример изображения">
+        <div class="features">
+            <div class="feature"> 
+            <h3 style="color: #FFD700;">Маркетплейсы</h3>
+                <img src="feature1.jpg" alt="Описание">
+              <p>   Узнайте больше о видах маркетплейсов
+          	</p> <a href="types.html">Подробнее</a>
+            </div>
+            <div class="feature">
+                <h3 style="color: #FFD700;">Инструменты</h3>
+			 <img src="feature2.jpg" alt="Описание">
+<p>Аналитика, автоматизация и управление</p>  
+			<a href="tools.html">Подробнее</a>
+            </div>
+			  <div class="feature">
+               <h3 style="color: #FFD700;">Правила</h3>
+			 <img src="feature3.jpg" alt="Описание">
+<p>Разрешенные товары, нормативные документы и рекомендации</p>
+           		<a href="rules.html">Подробнее</a>
+            </div>
+			  <div class="feature">
+              <h3 style="color: #FFD700;">Проверьте себя</h3>
+			 <img src="feature4.jpg" alt="Описание">
+<p>Узнайте, готовы ли Вы к работе?</p>
+           	 <a href="quiz.html">Пройти тест</a>
+            </div>
+       </div>
+    </div>
+<main> 
+ <!-- Всплывающее окно формы -->
+    <div class="popup-form">
+	<button class="close-btn">✖️</button>
+       Заполните форму для консультации по маркетплейсам!
+       <form id="consultationForm">
+        <label for="lastname">Фамилия:</label>
+        <input type="text" id="lastname" name="lastname" required><br><br>
+        <label for="firstname">Имя:</label>
+        <input type="text" id="firstname" name="firstname" required><br><br> 
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+		<button type="submit">Отправить</button>
+		</form>
+	</div>
+</main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body>
+	<!-- Кнопка "Наверх" -->
+<a href="start.html" id="back-to-top">Наверх</a>
+<script>
+    // Показать кнопку "Наверх"
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+</script> 
+    <script>
+        // Получаем элементы формы и контейнера для сообщения
+        const form = document.getElementById('consultationForm');
+        const successMessage = document.getElementById('successMessage');
+        // Обработчик события отправки формы
+        form.addEventListener('submit', function(event) {
+            // Предотвращаем стандартное поведение формы (перезагрузка страницы)
+            event.preventDefault();
+            // Проверяем, что все поля заполнены
+            const lastname = document.getElementById('lastname').value.trim();
+            const firstname = document.getElementById('firstname').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            if (lastname && firstname && phone && email) {
+                // Показываем сообщение об успехе
+                successMessage.style.display = 'block';
+                // Очищаем поля формы
+                form.reset();
+            } else {
+                alert('Пожалуйста, заполните все поля формы!');
+            }
+        });
+    // Отмена стандартного действия формы и показ сообщения
+    document.getElementById("consultationForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Отключаем стандартное поведение формы
+        // Показываем сообщение об успехе
+        const successMessage = document.getElementById("successMessage");
+        successMessage.style.display = "block";
+    });
+	document.querySelector(".close-btn").addEventListener("click", function() {
+    const form = document.querySelector(".popup-form");
+    form.classList.add("hidden"); // Добавляем класс для анимации
+    setTimeout(() => form.style.display = "none", 300); // Прячем форму после анимации
+});
+</script>
+    <!-- Уведомление об успехе -->
+    <div class="success-message" id="successMessage" style="display: none; text-align: center; margin-top: 20px; color: green;">
+        Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.
+    </div>
+<!-- Секция слайдера -->
+    <section id="slider-section">
+        <h2 style="color: #FFD700;">Отзывы клиентов</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Отзывы будут динамически добавляться здесь -->
+            </div>
+            <!-- Навигация -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            spaceBetween: 30,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            slidesPerView: 3,
+        });
+        const reviews = [
+    {
+        "img": "images/o1.png",
+        "text": "PriceMarket оказался для меня настоящей находкой! Благодаря консультации, я наконец смогла зарегистрировать свой магазин на маркетплейсе и избежать множества ошибок новичка. Огромное спасибо за вашу поддержку!",
+        "author": "Иванова Анастасия"
+    },
+    {
+        "img": "images/o2.png",
+        "text": "Узнал о сайте случайно, и ни капли не жалею. Здесь всё подробно рассказано о маркетплейсах, а главное — ребята помогают на каждом этапе. Видно, что работают профессионалы!",
+        "author": "Сергеев Алексей"
+    },
+    {
+        "img": "images/o3.jpg",
+        "text": "Всегда хотела продавать свои товары через маркетплейсы, но не знала, с чего начать. На PriceMarket всё разложено по полочкам, и мне помогли составить план. Теперь мой магазин работает на полную мощность!",
+        "author": "Нуркеева Асель"
+    },
+    {
+        "img": "images/o4.png",
+        "text": "Если бы не PriceMarket, я бы до сих пор сидел с нулевыми продажами. Консультация оказалась дико полезной, разобрали все нюансы, которые я даже не знал. Спасибо огромное за помощь и терпение!",
+        "author": "Николаев Дмитрий"
+    },
+    {
+        "img": "images/o5.jpg",
+        "text": "Очень понравился сайт! Я получила полное представление о том, как работают маркетплейсы, а консультация помогла сразу всё применить на практике. Теперь мои товары продаются ежедневно. Спасибо вам!",
+        "author": "Лебедева Ольга"
+    },
+    {
+        "img": "images/o6.png",
+        "text": "Понравилось, что PriceMarket всё объясняет просто и без воды. С помощью информации с сайта я быстро разобрался, как выйти на маркетплейсы. Большое спасибо команде, вы лучшие!",
+        "author": "Смирнов Артём"
+    },
+    {
+        "img": "images/o7.jpg",
+        "text": "Благодаря PriceMarket я поняла, как правильно подготовить всё для выхода на маркетплейс. Раньше все эти темы казались мне тёмным лесом, но теперь я уверенно двигаюсь вперёд. Консультант был очень терпеливым!",
+        "author": "Петрова Елена"
+    },
+    {
+        "img": "images/o8.png",
+        "text": "Всегда думал, что выйти на маркетплейс — это сложно и дорого. В PriceMarket развеяли все мифы, подсказали, как оптимизировать расходы и начать продавать. Очень рекомендую!",
+        "author": "Павлов Игорь"
+    },
+    {
+        "img": "images/o9.jpg",
+        "text": "Я в восторге от консультации! Сначала я читала статьи на сайте, а потом записалась на консультацию для уточнений. Теперь я точно знаю, как управлять магазином на маркетплейсе. Благодарю за вашу работу!",
+        "author": "Яковлева Татьяна"
+    },
+    {
+        "img": "images/o10.jpg",
+        "text": "Сложно поверить, что такое качество услуг можно получить онлайн! Ребята из PriceMarket составили для меня чёткий план выхода на маркетплейсы и подсказали, как избежать подводных камней. Всем советую!",
+        "author": "Сафин Руслан"
+    },
+    {
+        "img": "images/o11.jpg",
+        "text": "Опыт с PriceMarket превзошёл все ожидания! Консультанты подробно рассказали, как выставлять товары и работать с логистикой на маркетплейсах. Ваш сайт — незаменимый помощник для предпринимателей, спасибо!",
+        "author": "Новикова Анна"
+    },
+    {
+        "img": "images/o12.jpg",
+        "text": "Я совершенно не разбирался в продажах через маркетплейсы, пока не зашёл на PriceMarket. Теперь я не только продаю, но и активно развиваю свою нишу! Спасибо сотрудникам за помощь.",
+        "author": "Шлейн Василий"
+    },
+    {
+        "img": "images/o13.jpg",
+        "text": "PriceMarket спас меня от ошибок, которые могли обойтись мне в копеечку. Консультант был очень дружелюбным и профессиональным. Теперь я уверенно двигаюсь во всех делах, связанных с маркетплейсами!",
+        "author": "Пилипенко Анна"
+    },
+    {
+      
+        "img": "images/o14.jpg",
+        "text": "Сначала сильно сомневался, стоит ли тратить время на консультацию, ведь в интернете и так полно информации. Но PriceMarket показал мне, сколько нюансов я упускал. Консультация на высшем уровне!",
+        "author": "Вахитов Нармат"
+    },
+    {
+        "img": "images/o15.jpg",
+        "text": "Мой магазин на маркетплейсе начал работать благодаря вашей консультации! Ребята подсказали, где зарегистрироваться, как правильно оформить карточки товаров и избежать штрафов. Очень вам благодарна!",
+        "author": "Зайцева Виктория"
+    }
+]
+;
+        const swiperWrapper = document.querySelector(".swiper-wrapper");
+reviews.forEach(review => {
+    const slideDiv = document.createElement('div');
+    slideDiv.classList.add('swiper-slide'); // swiper-слайд
+    slideDiv.innerHTML = `
+        <div class="review">
+            <div class="review-content">
+                <img class="review-img" src="${review.img}" alt="${review.author}">
+                <div class="review-textual">
+                    <p class="review-text">${review.text}</p>
+                    <h4 class="review-author">${review.author}</h4>
+                </div>
+            </div>
+        </div>
+    `;
+    swiperWrapper.appendChild(slideDiv);
+});
+     </script>
+	 <footer>
+    <p>&copy; 2024 «PriceMarket». Все права защищены.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Узнайте о видах маркетплейсов: товарные, услуг, цифровые и многое другое.">
+    <meta name="keywords" content="маркетплейсы, виды маркетплейсов, цифровые платформы, товарные маркетплейсы, услуги">
+    <meta name="author" content="PriceMarket">
+    <title>Виды маркетплейсов | PriceMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Основные стили */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #d9e4f5, #f3f8fc);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1abc9c;
+            transition: 0.3s ease;
+        }
+
+        a:hover {
+            color: #16a085;
+        }
+
+        h1, h2 {
+            font-family: 'Georgia', serif;
+            color: #2c3e50;
+        }
+
+        /* Шапка */
+        header {
+            position: relative;
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        header img {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 80px;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background: #1abc9c;
+        }
+
+        /* Раздел "О маркетплейсах" */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin: 0 auto 40px auto;
+            max-width: 800px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+
+        .intro img {
+            width: 100%;
+            max-width: 700px;
+            margin: 20px 0 0;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Карточки типов маркетплейсов */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            padding: 20px;
+            font-size: 20px;
+            color: #4f4f4f;
+        }
+
+        .card p {
+            padding: 0 20px 20px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #7f8c8d;
+        }
+
+        .card ul {
+            padding: 0 40px 20px;
+        }
+		#back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0073e6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-decoration: none;
+            display: none;
+        }
+        #back-to-top:hover {
+            background: #005bb5;
+        }
+		#marketplaces-types {
+  margin-top: 2em; /* Отступ сверху */
+  font-family: sans-serif; /* Выберите подходящий шрифт */
+}
+
+#marketplaces-types h2 {
+  color: #333; /* Цвет заголовка */
+  font-size: 2em; /* Размер заголовка */
+  margin-bottom: 1em; /* Отступ снизу */
+}
+
+.marketplace-type {
+  border: 1px solid #ccc; /* Рамка вокруг каждого типа */
+  padding: 1em; /* Отступ внутри блока */
+  margin-bottom: 1em; /* Отступ снизу */
+  background-color: #f9f9f9; /* Цвет фона */
+}
+
+.marketplace-type h3 {
+  color: #0056b3; /* Цвет подзаголовка (синий) */
+  margin-top: 0; /* Отступ сверху */
+  font-weight: bold;
+}
+
+.marketplace-type p {
+  line-height: 1.6; /* Межстрочный интервал */
+}
+
+.marketplace-type ul {
+  list-style-type: disc; /* Маркеры списка */
+  padding-left: 20px; /* Отступ списка */
+}
+
+
+    </style>
+</head>
+<body>
+<header>
+    <img src="images/logo.png" alt="PriceMarket Logo">
+    <h1>Виды маркетплейсов</h1>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="types.html"style="color: #ffcc00;">О маркетплейсах</a>
+        <a href="tools.html">Инструменты</a>
+        <a href="rules.html">Правила</a>
+        <a href="quiz.html">Тесты</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Что такое маркетплейсы?</h2>
+    <div class="intro">
+        <p>Маркетплейсы — это платформы, которые предоставляют возможность продавцам и покупателям находить друг друга.</p>
+        <img src="images/marketplaces.jpg" alt="Маркетплейсы">
+    </div>
+</section>
+
+<section>
+    <h2>Типы маркетплейсов:</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="images/goods.jpg" alt="Товарные маркетплейсы">
+            <h3>Товарные</h3>
+            <p>Площадки для продажи товаров.</p>
+        </div>
+        <div class="card">
+            <img src="images/services.jpg" alt="Сервисы">
+            <h3>Услуги</h3>
+            <p>Платформы для поиска услуг и исполнителей (например, домашний ремонт).</p>
+        </div>
+        <div class="card">
+            <img src="images/digital.jpg" alt="Цифровые маркетплейсы">
+            <h3>Цифровые</h3>
+            <p>Используются для распространения цифрового контента, как книги, музыка и искусство.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Кнопка "Наверх" -->
+<a href="#top" id="back-to-top">Наверх</a>
+
+<script>
+    // Показать кнопку "Наверх"
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+</script>
+<section id="marketplaces-types">
+  <h2>Типы маркетплейсов</h2>
+  <div class="marketplace-type">
+    <h3>B2C (Business-to-Consumer)</h3>
+    <p>Наиболее распространенный тип, где продавцы (компании) предлагают товары напрямую конечным покупателям. Характеризуется широким ассортиментом товаров от разных продавцов, удобным поиском и сравнением цен. <br>
+    <b>Примеры:</b> Amazon, eBay, AliExpress, Ozon, Wildberries, ASOS.</p>
+    <ul>
+        <li><b>Многобрендовые:</b> Amazon, eBay</li>
+        <li><b>Брендовые:</b> Nike, Apple</li>
+        <li><b>Нишевые:</b> Маркетплейс только для косметики или детских товаров</li>
+    </ul>
+  </div>
+
+  <div class="marketplace-type">
+    <h3>C2C (Consumer-to-Consumer)</h3>
+    <p>На этих площадках частные лица продают товары друг другу. Часто используются для продажи подержанных вещей, товаров ручной работы или уникальных предметов. <br>
+    <b>Примеры:</b> Avito, eBay (частично), Facebook Marketplace.</p>
+  </div>
+<div class="marketplace-type">
+    <h3>B2B (Business-to-Business)</h3>
+    <p>Здесь взаимодействуют компании-поставщики и компании-покупатели. Предназначены для оптовых закупок, работы с корпоративными клиентами, снабжения предприятий.</p>
+    <ul>
+        <li><b>Типы:</b>
+            <ul>
+                <li>Горизонтальные: широкий ассортимент для разных отраслей.</li>
+                <li>Вертикальные: специализируются на определенной отрасли (например, маркетплейс для производителей мебели).</li>
+            </ul>
+        </li>
+        <li><b>Функционал:</b>
+            <ul>
+                <li>Система запросов котировок</li>
+                <li>Управление контрактами</li>
+                <li>Интеграция с ERP-системами</li>
+            </ul>
+        </li>
+        <li><b>Примеры:</b> Alibaba, Amazon Business, IndustryNet.</li>
+    </ul>
+</div>
+<div class="marketplace-type">
+    <h3>B2B2C (Business-to-Business-to-Consumer)</h3>
+    <p>Комбинированный тип, где производители или оптовые поставщики продают товары через платформу конечным потребителям. Маркетплейс выступает посредником.</p>
+    <ul>
+        <li><b>Различные модели:</b>
+            <ul>
+                <li>Прямые продажи от производителя</li>
+                <li>Оптовые продажи с последующей перепродажей</li>
+            </ul>
+        </li>
+        <li><b>Примеры:</b> Многие крупные B2C-маркетплейсы частично работают по этой модели (например, Amazon).</li>
+    </ul>
+</div>
+<div class="marketplace-type">
+    <h3>Нишевые маркетплейсы</h3>
+    <p>Специализируются на определенной категории товаров или услугах.</p>
+    <ul>
+        <li><b>Примеры:</b> Etsy (товары ручной работы), ASOS (одежда и аксессуары), Booking.com (бронирование отелей), Airbnb (аренда жилья), специализированные площадки для продажи автомобилей, недвижимости, билетов на мероприятия.</li>
+    </ul>
+</div>
+
+
+
+
+</section>
+
+
+
+<footer>
+    <p>&copy; 2024 «PriceMarket». Все права защищены.</p>
+</footer>
+</body>
+</html>

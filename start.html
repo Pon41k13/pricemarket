@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PiceMarket</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      height: 100%;
+    }
+    .container {
+      height: 350vh; /* Общая высота длинного контента для вертикального скролла */
+    }
+    .horizontal-scroll {
+      display: flex;
+      flex-direction: row;
+      position: sticky;
+      top: 0;
+      height: 100vh; /* Фиксируем высоту для 100% экрана */
+    }
+    .section-2 {
+      min-width: 100vw;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+	   padding-top: 25px; /* Дополнительно задаём отступ сверху для пространства */
+  font-size: 30px; /* Исправим 'avto' на пример — 24px (указать ваш размер текста) */
+      font-size: avto;
+      font-weight: bold;
+      color: red;
+      text-shadow: 5px 2px 4px rgba(10, 0, 0, 0.5);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+ .section-3 {
+      min-width: 100vw;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center ;
+	   padding-top: 25px; /* Дополнительно задаём отступ сверху для пространства */
+  font-size: 30px; /* Исправим 'avto' на пример — 24px (указать ваш размер текста) */
+      font-size: avto;
+      font-weight: bold;
+      color: black;
+      text-shadow: 5px 2px 4px rgba(10, 0, 0, 0.5);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .section-2 { background-image: url('image1.jpg'); }
+    .section-3 { background-image: url('image2.jpg'); }
+        /* Стиль для видео-секции */
+    .section-1 {
+      position: relative;
+      overflow: hidden; /* Чтобы скрыть выходящие части видео */
+      min-width: 100vw;
+      height: 100vh;
+    }
+    .section-1 video {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: auto; /* Видео будет занимать весь экран */
+      object-fit: cover; /* Растягиваем видео без искажений */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="horizontal-scroll">
+          <div class="section section-1">
+            <video autoplay loop controls>
+              <source src="video.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+          </div>
+          <div class="section section-2">«PriceMarket — находим общие решения для вашего бизнеса!»  </div>
+            <div class="section section-3">
+	            <a>PriceMarket </a>
+	            <p>— диалог, который приводит к сделке!</p>
+            </div>
+    </div>
+</div>
+  <script>
+    const container = document.querySelector('.container');
+    const horizontalScroll = document.querySelector('.horizontal-scroll');
+    const horizontalScrollWidth = horizontalScroll.scrollWidth; // Общая ширина для горизонтального движения
+    const windowHeight = window.innerHeight; // Высота окна
+    let isRedirected = false; // Флаг, чтобы исключить повторное перенаправление
+    // Логика вычисления скроллинга
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY; // Текущее положение скролла
+      const containerOffsetTop = container.offsetTop; // Начальная позиция контейнера
+      // Если вертикальный скролл находится в области контейнера
+      if (scrollTop >= containerOffsetTop && scrollTop <= containerOffsetTop + container.offsetHeight - windowHeight) {
+        const progress = (scrollTop - containerOffsetTop) / (container.offsetHeight - windowHeight);
+        const translateX = progress * (horizontalScrollWidth - window.innerWidth);
+        horizontalScroll.style.transform = `translateX(${-translateX}px)`;
+      }
+      // Перенаправление в конце контейнера
+      if (scrollTop > containerOffsetTop + container.offsetHeight - windowHeight && !isRedirected) {
+        isRedirected = true; // Установить флаг, чтобы избежать повторного срабатывания
+        window.location.href = 'index.html'; // Задайте нужный URL
+      }
+    });
+  </script>
+</body>
+</html>

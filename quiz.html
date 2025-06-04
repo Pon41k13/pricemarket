@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест с результатами</title>
+    <style>
+     /* Стили для верхнего меню */
+header {
+    background: #cccccc; /* Серый фон */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    position: fixed; /* Закрепление меню сверху */
+    width: 100%; /* На всю ширину страницы */
+    top: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Расстояние между ссылками */
+}
+
+nav a {
+    text-decoration: none;
+    color: #333333; /* Тёмный текст */
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background: #666666;
+    color: #ffffff; /* Белый цвет текста при наведении */
+}
+
+/* Для выделенной ссылки */
+nav a[style] {
+    background-color: #ffcc00;
+    color: #333333; /* Тёмный текст */
+    border-radius: 4px;
+}
+
+/* Стили для полосы-разделителя */
+.line {
+    height: 4px;
+    background-color: #333333; /* Линия под меню */
+    margin-top: 5px;
+}
+
+/* Для контейнера с формой */
+.container {
+    margin-top: 100px; /* Отступ сверху, чтобы форма не перекрывалась меню */
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}  
+
+	   body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+            margin: 0;
+			flex-direction: column;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .button:hover {
+            background: #2980b9;
+        }
+
+        .hidden {
+            display: none;
+        }
+			
+		
+.box {
+    width: 80px; /* Уменьшение размеров коробки */
+    height: auto; /* Пропорциональная высота */
+}
+.arrow {
+    width: 70px; /* Уменьшение размеров стрелки */
+    height: auto;
+}
+.document {
+    width: 90px; /* Уменьшение размеров документа */
+    height: auto;
+}
+.many {
+    width: 90px; /* Уменьшение размеров документа */
+    height: auto;
+}
+ .floating {
+        position: absolute;
+        width: 100px; /* Фиксированный размер */
+        height: 100px;
+		z-index: -1;
+    }
+    </style>
+</head>
+<body>
+ <header>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="types.html">О маркетплейсах</a>
+            <a href="tools.html">Инструменты</a>
+            <a href="rules.html">Правила</a>
+            <a href="quiz.html">Пройти тест</a>
+        </nav>
+        <div class="line"></div>
+    </header>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+    // Конфигурация объектов
+    const config = [
+        { src: 'box.png', count: 1 },      
+        { src: 'arrow.png', count: 2 },    
+        { src: 'document.png', count: 3 }  
+    ];
+
+    // Создать один плавающий объект
+    function createFloatingElement(src, top, isLeft) {
+        const element = document.createElement('img');
+        element.src = src;
+        element.classList.add('floating');
+        element.style.position = 'absolute';
+        element.style.left = isLeft ? '0px' : `${window.innerWidth - 100}px`;
+        element.style.top = `${top}px`;
+        document.body.appendChild(element);
+        return element;
+    }
+
+    // Анимация объекта
+    function animateElement(element, direction) {
+        const speed = 2; // Скорость перемещения
+        let posX = parseFloat(element.style.left);
+        
+        function move() {
+            // Обновляем позицию элемента
+            posX += direction * speed;
+            element.style.left = posX + 'px';
+
+            // Проверяем границы
+            if (posX <= 0 || posX >= (window.innerWidth - element.width)) {
+                direction *= -1; // Меняем направление
+            }
+
+            requestAnimationFrame(move); // Продолжаем анимацию
+        }
+
+        move(); // Запуск движения
+    }
+
+    // Генерация и анимация объектов
+    function createAndAnimateObjects() {
+        const windowHeight = window.innerHeight;
+        let elementIndex = 0;
+
+        config.forEach(({ src, count }) => {
+            for (let i = 0; i < count; i++) {
+                const top = (i + 1) * (windowHeight / (count + 1));
+                const isLeft = elementIndex % 2 === 0;
+                const element = createFloatingElement(src, top, isLeft);
+                const direction = isLeft ? 1 : -1; // Определяем направление
+                animateElement(element, direction);
+                elementIndex++;
+            }
+        });
+    }
+
+    // Запуск
+    createAndAnimateObjects();
+</script>
+
+
+
+
+
+
+    <div class="container">
+        <h1>Тест по теме "Маркетплейсы"</h1>
+        <div id="questionContainer">
+            <div id="currentQuestion" class="question"></div>
+            <div id="optionsContainer" class="options"></div>
+        </div>
+        <button id="nextQuestionButton" class="button hidden" onclick="goToNextQuestion()">Перейти к следующему вопросу</button>
+        <button id="checkResultsButton" class="button hidden" onclick="showResults()">Проверить результаты</button>
+        <button id="restartTestButton" class="button hidden" onclick="restartTest()">Пройти тест заново</button>
+    </div>
+
+    <script>
+        const questions = [
+    {
+        question: "1. Какое самое важное требование к описанию товаров?",
+        options: ["Яркие цвета", "Достоверность информации", "Доступность", "Количество фотографий"],
+        correct: 1 // Индекс правильного ответа
+    },
+    {
+        question: "2. Как продавец может повысить популярность товара?",
+        options: ["Снизить цену", "Платная реклама", "Обратиться в техподдержку", "Ограничить количество заказов"],
+        correct: 1
+    },
+    {
+        question: "3. Какой документ обязателен для доставки на маркетплейсе?",
+        options: ["Товарный чек", "Транспортная накладная", "Счёт-фактура", "Договор поставки"],
+        correct: 1
+    },
+    {
+        question: "4. Что помогает увеличить лояльность покупателей на маркетплейсе?",
+        options: ["Бонусные баллы", "Увеличение времени доставки", "Сокращение описания товара", "Усложнение процесса возврата"],
+        correct: 0
+    },
+    {
+        question: "5. Как влияет наличие рейтинга продавца на продажи?",
+        options: ["Повышает доверие покупателей", "Не имеет значения", "Уменьшает конкуренцию", "Запрещено правилами"],
+        correct: 0
+    },
+    {
+        question: "6. Что значит акционная цена на маркетплейсе?",
+        options: ["Цена возвращается к исходной стоимости", "Временное снижение цены", "Увеличение цены по соглашению с клиентом", "Полная отмена продаж"],
+        correct: 1
+    },
+    {
+        question: "7. Что является ключевым фактором успеха на маркетплейсе?",
+        options: ["Число сотрудников компании", "Наличие товаров на складе", "Быстрая доставка и качественный сервис", "Высокая стоимость доставки"],
+        correct: 2
+    },
+    {
+        question: "8. Какие товары имеют наибольший спрос на маркетплейсах?",
+        options: ["Предметы роскоши", "Повседневные удобные товары (одежда, бытовая техника)", "Ручная работа", "Запрещенные товары"],
+        correct: 1
+    },
+    {
+        question: "9. Какое преимущество предоставляет участие в акциях маркетплейса?",
+        options: ["Получение PR среди продавцов", "Привлечение дополнительных покупателей", "Уменьшение продаж", "Увеличение издержек"],
+        correct: 1
+    },
+    {
+        question: "10. Какие способы продвижения наиболее эффективны на маркетплейсе?",
+        options: ["Указание высокого рейтинга без отзывов", "Конкурсы для продавцов", "Платное продвижение и качественное описание товара", "Одинаковое изображение для всех товаров"],
+        correct: 2
+    }
+];
+
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function renderQuestion() {
+            document.getElementById("nextQuestionButton").classList.add("hidden");
+            
+            const questionContainer = document.getElementById("questionContainer");
+            const currentQuestionElement = document.getElementById("currentQuestion");
+            const optionsContainer = document.getElementById("optionsContainer");
+
+            const currentQuestion = questions[currentQuestionIndex];
+
+            currentQuestionElement.innerText = currentQuestion.question;
+
+            // Очистить предыдущие опции
+            optionsContainer.innerHTML = "";
+            currentQuestion.options.forEach((option, index) => {
+                const optionHTML = `
+                    <label>
+                        <input type="radio" name="answer" value="${index}" onclick="handleAnswerSelect(${index})">
+                        ${option}
+                    </label>
+                `;
+                optionsContainer.innerHTML += optionHTML;
+            });
+        }
+
+        function handleAnswerSelect(selectedIndex) {
+            const currentQuestion = questions[currentQuestionIndex];
+
+            // Проверить правильность ответа
+            if (selectedIndex === currentQuestion.correct) {
+                score++;
+            }
+
+            // Показать кнопку "Перейти к следующему вопросу"
+            document.getElementById("nextQuestionButton").classList.remove("hidden");
+        }
+
+        function goToNextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                renderQuestion();
+            } else {
+                // Все вопросы пройдены – показать кнопку "Проверить результаты"
+                document.getElementById("questionContainer").classList.add("hidden");
+                document.getElementById("nextQuestionButton").classList.add("hidden");
+                document.getElementById("checkResultsButton").classList.remove("hidden");
+            }
+        }
+
+        function showResults() {
+            // Показываем результат во всплывающем окне
+            alert(`Вы правильно ответили на ${score} из ${questions.length} вопросов.`);
+
+            // Показать кнопку "Пройти тест заново"
+            document.getElementById("checkResultsButton").classList.add("hidden");
+            document.getElementById("restartTestButton").classList.remove("hidden");
+        }
+
+        function restartTest() {
+            score = 0;
+            currentQuestionIndex = 0;
+
+            // Скрыть кнопки
+            document.getElementById("restartTestButton").classList.add("hidden");
+            document.getElementById("questionContainer").classList.remove("hidden");
+
+            // Перезапустить тест
+            renderQuestion();
+        }
+
+        // Запустить тест с первого вопроса
+        renderQuestion();
+    </script>
+	<footer>
+    <p>&copy; 2024 «PriceMarket». Все права защищены.</p>
+</footer>
+</body>
+</html>
